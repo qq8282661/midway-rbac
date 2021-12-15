@@ -7,3 +7,5 @@
 export const security = {
   csrf: false,
 };
+
+export const middleware = ['reportMiddleware'];
