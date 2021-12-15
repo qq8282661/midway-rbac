@@ -2,7 +2,7 @@ import { Inject } from '@midwayjs/decorator';
 import { Context } from 'egg';
 import { ILogger } from '@midwayjs/logger';
 
-import ErrorEnum from '../common/error-code';
+import { ErrorEnum } from '../common/error-code';
 import { Utils } from '../common/utils';
 
 export class BaseController {

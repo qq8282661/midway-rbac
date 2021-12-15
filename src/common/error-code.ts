@@ -1,7 +1,7 @@
 /**
  * 统一错误代码定义
  */
-export default {
+export const ErrorEnum = {
   201: '创建成功',
   200: 'OK',
   204: '用户删除数据成功',
