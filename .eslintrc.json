@@ -1,6 +1,34 @@
 {
   "extends": "./node_modules/mwts/",
-  "ignorePatterns": ["node_modules", "dist", "test", "jest.config.js", "typings"],
+  "plugins": ["import"],
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "test",
+    "jest.config.js",
+    "typings",
+    "src/app/public/**/**",
+    "src/app/view/**/**",
+    "public/**/**",
+    "bootstrap.js"
+  ],
+  "rules": {
+    "import/order": [
+      1,
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "newlines-between": "always"
+      }
+    ]
+  },
   "env": {
     "jest": true
   }
