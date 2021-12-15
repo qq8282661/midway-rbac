@@ -1,4 +1,5 @@
 import { Provide } from '@midwayjs/decorator';
+
 import { IUserOptions } from '../interface';
 
 @Provide()
