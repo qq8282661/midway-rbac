@@ -1,3 +1,4 @@
 module.exports = {
-  ...require('mwts/.prettierrc.json')
-}
+  printWidth: 100,
+  ...require('mwts/.prettierrc.json'),
+};
