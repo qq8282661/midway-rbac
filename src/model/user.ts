@@ -23,6 +23,6 @@ export class User {
   createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
-  @VersionColumn()
+  @VersionColumn({ type: 'bigint', unsigned: true })
   _version: number;
 }
