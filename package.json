@@ -18,6 +18,7 @@
     "egg-scripts": "^2.10.0",
     "moment": "^2.29.1",
     "mysql2": "^2.3.3",
+    "nanoid": "^3.1.30",
     "typeorm": "^0.2.41"
   },
   "devDependencies": {
