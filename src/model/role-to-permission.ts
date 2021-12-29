@@ -1,8 +1,8 @@
 import { EntityModel } from '@midwayjs/orm';
 import { Column, CreateDateColumn, UpdateDateColumn, VersionColumn } from 'typeorm';
 
-@EntityModel('role_permission')
-export class UserRole {
+@EntityModel('role_to_permission')
+export class UserToRole {
   @Column({
     type: 'bigint',
     unsigned: true,
