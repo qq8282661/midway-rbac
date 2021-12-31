@@ -10,7 +10,7 @@ export const security = {
   csrf: false,
 };
 
-export const middleware = ['reportMiddleware'];
+export const middleware = ['reportMiddleware', 'exceptionMiddleware'];
 
 export const orm: ConnectionOptions = {
   type: 'mysql',
