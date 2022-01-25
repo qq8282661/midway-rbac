@@ -7,6 +7,7 @@ export const PUBLIC_PATH = {
     '/api/teacher/course/bindCourseware': 1,
     '/api/common/editor/courseware/add': 1,
     '/api/common/editor/resource2d/add': 1,
+    '/admin/user/login': 1,
   },
   DELETE: { '/api/common/editor/courseware': 1 },
 };
