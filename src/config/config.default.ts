@@ -30,6 +30,30 @@ export default (appInfo: EggAppInfo) => {
       ignoreJSON: true,
     },
   };
+  config.multipart = {
+    // mode: 'file',
+    fileSize: '300mb',
+    whitelist: [
+      // images
+      '.jpg',
+      '.jpeg', // image/jpeg
+      '.png', // image/png, image/x-png
+      '.gif', // image/png, image/x-png
+      '.zip',
+      '.scene',
+      '.xscene',
+      '.glb',
+    ],
+  };
+  config.bodyParser = {
+    enable: true,
+    jsonLimit: '1mb',
+  };
+  config.jwt = {
+    secret: 'INnyQ50BEE6AITQraIaDGooJ',
+    redisScope: 'rbacAuth', // redis的作用域前缀
+    accessTokenExpiresIn: 60 * 60 * 24 * 3, // 签名过期时间单位s
+  };
 
   config.redis = {
     client: {

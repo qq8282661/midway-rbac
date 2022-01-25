@@ -14,7 +14,9 @@ export class User {
   @Column({ type: 'varchar', length: 100, comment: '用户名' })
   username: string;
   @Column({ type: 'varchar', length: 255, comment: '密码哈希' })
-  password: string;
+  passwordHash: string;
+  @Column({ type: 'varchar', length: 255, comment: '盐' })
+  salt: string;
   @Column({ type: 'varchar', length: 80 })
   nickname: string;
 

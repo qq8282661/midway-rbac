@@ -52,7 +52,7 @@ export class BaseController {
     return resBody;
   }
 
-  protected resp(op: { data: any; code: number; message: string }) {
+  protected resp(op: { data: any; code?: number; message?: string }) {
     const data = op?.data ?? null;
     const code = op?.code ?? 200;
     return {

@@ -16,9 +16,11 @@
     "egg": "^2.0.0",
     "egg-cors": "^2.2.3",
     "egg-scripts": "^2.10.0",
+    "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "mysql2": "^2.3.3",
     "nanoid": "^3.1.30",
+    "svg-captcha": "^1.4.0",
     "typeorm": "^0.2.41"
   },
   "devDependencies": {
@@ -26,8 +28,9 @@
     "@midwayjs/egg-ts-helper": "^1.0.1",
     "@midwayjs/luckyeye": "^1.0.0",
     "@midwayjs/mock": "^2.3.0",
-    "@types/ioredis": "^4.28.5",
+    "@types/ioredis": "^4.28.7",
     "@types/jest": "^26.0.10",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/node": "14",
     "cross-env": "^6.0.0",
     "eslint-plugin-import": "^2.25.3",

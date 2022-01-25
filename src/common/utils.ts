@@ -1,6 +1,8 @@
+import * as crypto from 'crypto';
+import { promisify } from 'util';
+
 import { Config, Provide, Scope, ScopeEnum } from '@midwayjs/decorator';
 import { Context } from 'egg';
-
 @Provide()
 @Scope(ScopeEnum.Singleton)
 export class Utils {
@@ -35,5 +37,15 @@ export class Utils {
   // 数组去重
   uniqueArray(arr) {
     return Array.from(new Set(arr));
+  }
+  async pbkdf2(
+    password: string,
+    salt: string,
+    iterations = 10000,
+    keylen = 64,
+    digest = 'sha256'
+  ): Promise<string> {
+    const buff = await promisify(crypto.pbkdf2)(password, salt, iterations, keylen, digest);
+    return buff.toString('hex');
   }
 }
