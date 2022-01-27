@@ -1,8 +1,9 @@
 import { Inject, Provide } from '@midwayjs/decorator';
 import { InjectEntityModel } from '@midwayjs/orm';
 import { Repository } from 'typeorm';
+import { nanoid } from 'nanoid';
 
-import { UserLoginDto } from '../dto/user';
+import { UserLoginDto, UserRegisterDto } from '../dto/user';
 import { IUserOptions } from '../interface';
 import { HttpException } from '../common/http-exception';
 import { Utils } from '../common/utils';
@@ -43,5 +44,17 @@ export class UserService {
       throw new HttpException(10003);
     }
     return fundOne;
+  }
+  async register(params: UserRegisterDto) {
+    const exist = await this.userModel.findOne({ username: params.username });
+    if (exist) throw new HttpException(10001, '用户名已经存在', 403);
+    const salt = nanoid();
+    const user = await this.userModel.save({
+      username: params.username,
+      nickname: params.nickname,
+      salt,
+      passwordHash: await this.utils.pbkdf2(params.password, salt),
+    });
+    return user;
   }
 }

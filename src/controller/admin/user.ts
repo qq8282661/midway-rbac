@@ -20,4 +20,9 @@ export class UserController extends BaseController {
     const data = await this.userService.login(dto);
     return this.success(data);
   }
+
+  @Post('/register')
+  async register() {
+    return this.success('register');
+  }
 }

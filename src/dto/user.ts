@@ -11,3 +11,12 @@ export class UserLoginDto {
   @Rule(RuleType.string().required())
   client: string;
 }
+
+export class UserRegisterDto {
+  @Rule(RuleType.string().min(8).required())
+  username: string;
+  @Rule(RuleType.string().min(8).required())
+  password: string;
+  @Rule(RuleType.string().min(2).required())
+  nickname: string;
+}
