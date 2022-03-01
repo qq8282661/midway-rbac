@@ -49,6 +49,17 @@ export default (appInfo: EggAppInfo) => {
     enable: true,
     jsonLimit: '1mb',
   };
+
+  config.taskConfig = {
+    redis: { port: 6379, host: '127.0.0.1', password: '123456' },
+    prefix: 'midway-task',
+    defaultJobOptions: {
+      repeat: {
+        tz: 'Asia/Shanghai', // Task等参数里面设置的比如（0 0 0 * * *）本来是为了0点执行，但是由于时区不对，所以国内用户时区设置一下。
+      },
+    },
+  };
+
   config.jwt = {
     secret: 'INnyQ50BEE6AITQraIaDGooJ',
     redisScope: 'rbacAuth', // redis的作用域前缀

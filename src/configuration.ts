@@ -6,9 +6,10 @@ import { Application } from 'egg';
 import * as orm from '@midwayjs/orm';
 import * as redis from '@midwayjs/redis';
 import * as axios from '@midwayjs/axios';
+import * as task from '@midwayjs/task';
 
 @Configuration({
-  imports: [orm, redis, axios],
+  imports: [orm, redis, axios, task],
   importConfigs: [join(__dirname, './config')],
   conflictCheck: true,
 })

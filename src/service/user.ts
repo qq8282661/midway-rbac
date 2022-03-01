@@ -1,4 +1,4 @@
-import { Inject, Provide } from '@midwayjs/decorator';
+import { Inject, Provide, Task } from '@midwayjs/decorator';
 import { InjectEntityModel } from '@midwayjs/orm';
 import { Repository } from 'typeorm';
 import { nanoid } from 'nanoid';
@@ -11,8 +11,9 @@ import { User } from '../model/user';
 
 import { CaptchaService } from './captcha';
 import { AuthService } from './auth';
+import { BaseService } from './base';
 @Provide()
-export class UserService {
+export class UserService extends BaseService {
   @InjectEntityModel(User)
   userModel: Repository<User>;
   @Inject()
@@ -56,5 +57,16 @@ export class UserService {
       passwordHash: await this.utils.pbkdf2(params.password, salt),
     });
     return user;
+  }
+  // @TaskLocal('0 */1 * * * *')
+
+  @Task({
+    repeat: { cron: '* * * * *' },
+  })
+  async test() {
+    console.log('task ready!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+    this.redisService.hset('json', { type: 1, name: 'Tom' });
+    const result = await this.redisService.hgetall('json');
+    console.log('result', result);
   }
 }
