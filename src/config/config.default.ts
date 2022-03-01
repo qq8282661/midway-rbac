@@ -1,10 +1,10 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
-import { config as envInt } from 'dotenv';
+import { config as envInit } from 'dotenv';
 
 export type DefaultConfig = PowerPartial<EggAppConfig>;
 
 export default (appInfo: EggAppInfo) => {
-  envInt();
+  envInit();
 
   const config = {} as DefaultConfig;
 
@@ -43,11 +43,14 @@ export default (appInfo: EggAppInfo) => {
       '.scene',
       '.xscene',
       '.glb',
+      'bmp',
+      'svg',
+      'webp',
     ],
   };
   config.bodyParser = {
     enable: true,
-    jsonLimit: '1mb',
+    jsonLimit: '10mb',
   };
 
   config.taskConfig = {

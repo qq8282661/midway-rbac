@@ -61,7 +61,7 @@ export class UserService extends BaseService {
   // @TaskLocal('0 */1 * * * *')
 
   @Task({
-    repeat: { cron: '* * * * *' },
+    repeat: { cron: '0 0 */1 * * *' },
   })
   async test() {
     console.log('task ready!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
