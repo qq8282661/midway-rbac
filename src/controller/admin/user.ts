@@ -1,7 +1,7 @@
 import { Inject, Controller, Post, Provide, Body, ALL, Validate } from '@midwayjs/decorator';
 import { Context } from 'egg';
 
-import { UserLoginDto } from '../../dto/user';
+import { UserLoginDto, UserRegisterDto } from '../../dto/user';
 import { UserService } from '../../service/user';
 import { BaseController } from '../base';
 
@@ -22,7 +22,8 @@ export class UserController extends BaseController {
   }
 
   @Post('/register')
-  async register() {
-    return this.success('register');
+  async register(@Body(ALL) dto: UserRegisterDto) {
+    const user = await this.userService.register(dto);
+    return this.resp({ data: user, code: 201 });
   }
 }

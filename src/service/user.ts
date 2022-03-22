@@ -46,6 +46,7 @@ export class UserService extends BaseService {
     }
     return fundOne;
   }
+
   async register(params: UserRegisterDto) {
     const exist = await this.userModel.findOne({ username: params.username });
     if (exist) throw new HttpException(10001, '用户名已经存在', 403);
